@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="creative-learning-guide" target="1.5" />
+      <module name="creative-learning-guide" target="1.6" />
       <module name="creativelearningguide" target="1.5" />
     </bytecodeTargetLevel>
   </component>
