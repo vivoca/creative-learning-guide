@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS translate;
+DROP TABLE IF EXISTS translation;
 
-CREATE TABLE translate (
-  TRANS_ID Bigserial PRIMARY KEY NOT NULL,
-  HUNG varchar(100) NOT NULL,
+CREATE TABLE translation (
+  TRANS_ID int PRIMARY KEY NOT NULL,
+  HUNGARIAN varchar(100) NOT NULL,
   OTHER varchar(100) NOT NULL
 );
