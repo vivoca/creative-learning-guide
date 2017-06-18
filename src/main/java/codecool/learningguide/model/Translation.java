@@ -2,26 +2,26 @@ package codecool.learningguide.model;
 
 import java.io.Serializable;
 
-public class Translate implements Serializable {
+public class Translation implements Serializable {
     private static final long serialVersionUID = 1L;
-    long transId;
+    int transId;
     String hungarian;
     String foreign;
 
-    public Translate(){
+    public Translation(){
     }
 
-    public Translate(long transId, String hungarian, String foreign)     {
+    public Translation(int transId, String hungarian, String foreign)     {
         this.transId = transId;
         this.hungarian = hungarian;
         this.foreign = foreign;
     }
 
-    public long getTransId() {
+    public int getTransId() {
         return transId;
     }
 
-    public void setTransId(long transId) {
+    public void setTransId(int transId) {
         this.transId = transId;
     }
 
@@ -43,7 +43,7 @@ public class Translate implements Serializable {
 
     @Override
     public String toString() {
-        return "Translate [transId=" + transId +
+        return "Translation [transId=" + transId +
                 ", hungarian=" + hungarian +
                 ", foreign=" + foreign + "]";
     }
