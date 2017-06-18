@@ -37,18 +37,35 @@ public class TranslationDaoImpl extends JdbcDaoSupport implements TranslationDao
     }
 
     @Override
-    public void insertBatch(final List<Translation> dictionaries) {
+    public void insertBatch(final List<Translation> translations) {
         String sql = "INSERT INTO translation " + "(TRANS_ID, HUNGARIAN, OTHER) VALUES (?, ?, ?)" ;
         getJdbcTemplate().batchUpdate(sql, new BatchPreparedStatementSetter() {
             public void setValues(PreparedStatement ps, int i) throws SQLException {
-                Translation translation = dictionaries.get(i);
+                Translation translation = translations.get(i);
                 ps.setInt(1, translation.getTransId());
                 ps.setString(2, translation.getHungarian());
                 ps.setString(3, translation.getForeign());
             }
 
             public int getBatchSize() {
-                return dictionaries.size();
+                return translations.size();
+            }
+        });
+    }
+
+    @Override
+    public void insertFromCsv(final List<? extends Translation> translations) {
+        String sql = "INSERT INTO translation " + "(TRANS_ID, HUNGARIAN, OTHER) VALUES (?, ?, ?)" ;
+        getJdbcTemplate().batchUpdate(sql, new BatchPreparedStatementSetter() {
+            public void setValues(PreparedStatement ps, int i) throws SQLException {
+                Translation translation = translations.get(i);
+                ps.setInt(1, translation.getTransId());
+                ps.setString(2, translation.getHungarian());
+                ps.setString(3, translation.getForeign());
+            }
+
+            public int getBatchSize() {
+                return translations.size();
             }
         });
 

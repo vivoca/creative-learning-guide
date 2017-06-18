@@ -8,7 +8,9 @@ public interface TranslationDao {
 
     void insert(Translation trans);
 
-    void insertBatch(List<Translation> dictionaries);
+    void insertBatch(List<Translation> translations);
+
+    void insertFromCsv(final List<? extends Translation> translations);
 
     List<Translation> loadAllTranslation();
 
