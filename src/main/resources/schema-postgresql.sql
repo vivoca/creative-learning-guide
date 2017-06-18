@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS translate;
+
+CREATE TABLE translate (
+  TRANS_ID Bigserial PRIMARY KEY NOT NULL,
+  HUNG varchar(100) NOT NULL,
+  OTHER varchar(100) NOT NULL
+);
