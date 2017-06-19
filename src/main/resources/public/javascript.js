@@ -3,11 +3,12 @@ function myFunction() {
     var txt = "";
     var i;
     for (i = 0; i < answer.length; i++) {
-        if (answer[1].checked) {
+        if (answer[i].checked && answer[i].value === "gestern") {
             txt = "right";
-        } else {
-            txt = "wrong. The right answer is " + answer[1].value
         }
     }
-    document.getElementById("answer").value = "Your answer is " + txt;
+    if (txt === "") {
+        txt = "wrong. The right answer is " + answer[1].value
+    }
+    document.getElementById("solution").value = "Your answer is " + txt;
 }
