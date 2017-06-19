@@ -3,7 +3,6 @@ package codecool.learningguide.service.impl;
 import codecool.learningguide.dao.TranslationDao;
 import codecool.learningguide.model.Translation;
 import codecool.learningguide.service.TranslationService;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +24,8 @@ public class TranslationServiceImpl implements TranslationService {
         translationDao.insertBatch(dictionaries);
     }
 
-    public void loadAllTranslation(){
-        List<Translation> listTrans = translationDao.loadAllTranslation();
-        for(Translation trans: listTrans){
-            System.out.println(trans.toString());
-        }
+    public List<Translation> getAllTranslation(){
+        return translationDao.getAllTranslation();
     }
 
     @Override

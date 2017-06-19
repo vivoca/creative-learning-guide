@@ -71,7 +71,7 @@ public class TranslationDaoImpl extends JdbcDaoSupport implements TranslationDao
 
     }
 
-    public List<Translation> loadAllTranslation(){
+    public List<Translation> getAllTranslation(){
         String sql = "SELECT * FROM translation";
         List<Map<String, Object>> rows = getJdbcTemplate().queryForList(sql);
 

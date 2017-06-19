@@ -10,7 +10,7 @@ public interface TranslationService {
 
     void insertBatch(List<Translation> dictionaries);
 
-    void loadAllTranslation();
+    List<Translation> getAllTranslation();
 
     void getTranslationById(int trans_id);
 

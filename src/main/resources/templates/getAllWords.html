@@ -1,0 +1,25 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All words</title>
+</head>
+
+<body>
+<h2>All Words in System</h2>
+
+<table border="1">
+    <tr>
+        <th>Translation Id</th>
+        <th>Hungarian</th>
+        <th>German</th>
+    </tr>
+    <th:block th:each= "trans : ${translations}" >
+        <tr>
+            <td th:text="${trans.transId}"></td>
+            <td th:text="${trans.hungarian}">${trans.hungarian}</td>
+            <td th:text="${trans.foreign}">${trans.foreign}</td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>

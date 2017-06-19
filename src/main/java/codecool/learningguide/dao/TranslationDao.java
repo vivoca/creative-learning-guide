@@ -12,7 +12,7 @@ public interface TranslationDao {
 
     void insertFromCsv(final List<? extends Translation> translations);
 
-    List<Translation> loadAllTranslation();
+    List<Translation> getAllTranslation();
 
     Translation findTranslationById(int trans_id);
 

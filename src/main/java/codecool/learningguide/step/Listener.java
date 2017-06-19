@@ -25,7 +25,7 @@ public class Listener extends JobExecutionListenerSupport {
         if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
             log.info("Finish Job! Check the results");
 
-            List<Translation> translations = translationDao.loadAllTranslation();
+            List<Translation> translations = translationDao.getAllTranslation();
 
             for (Translation translation : translations) {
                 log.info("Found <" + translation + "> in the database.");
