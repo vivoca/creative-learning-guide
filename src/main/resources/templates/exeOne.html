@@ -5,13 +5,15 @@
 </head>
 <body>
 
-<p>What is the German word for: tegnap?</p>
+<p th:text="'What is the German word for: ' + ${question.hungarian} + '?'"></p>
 
-<form action="/hello.html" method="post">
-    <input type="radio" name="answer" value="vielleicht"/>vielleicht<br/>
-    <input type="radio" name="answer" value="gestern"/>gestern<br/>
-    <input type="radio" name="answer" value="wieder"/>wieder<br/>
-    <br/>
+<form action="/exeOne.html" method="post">
+    <ul>
+        <li th:each="answer : ${answers}">
+            <input type="radio" th:field="*{type}" th:value="${answer.foreign}" />
+            <label th:for="${#ids.prev('type')}" th:text="#{${'seedstarter.type.' + answer}}">Wireframe</label>
+        </li>
+    </ul>
     <input type="button" onclick="myFunction()" value="Send answer"/>
     <br/><br/>
     <input type="text" id="solution" size="50"/>
