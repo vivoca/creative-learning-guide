@@ -8,12 +8,9 @@
 <p th:text="'What is the German word for: ' + ${question.hungarian} + '?'"></p>
 
 <form action="/exeOne.html" method="post">
-    <ul>
-        <li th:each="answer : ${answers}">
-            <input type="radio" th:field="*{type}" th:value="${answer.foreign}" />
-            <label th:for="${#ids.prev('type')}" th:text="#{${'seedstarter.type.' + answer}}">Wireframe</label>
-        </li>
-    </ul>
+    <div th:each="answer, iterStat : ${answers}">
+        <input type="radio" th:name="${answer.foreign}" th:value="${answer.foreign}" th:text="${answer.foreign}" /><br/>
+    </div>
     <input type="button" onclick="myFunction()" value="Send answer"/>
     <br/><br/>
     <input type="text" id="solution" size="50"/>

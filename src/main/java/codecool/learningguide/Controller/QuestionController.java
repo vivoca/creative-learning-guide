@@ -18,11 +18,11 @@ public class QuestionController {
     @Autowired
     ExerciseService exerciseService;
 
-    @RequestMapping(value = "/exeOne")
+    @RequestMapping(value = "/exeOne", method = RequestMethod.GET)
     public String exeOne(Model model) {
         Translation  question = exerciseService.getExeOneQuestion();
         model.addAttribute("question", question);
-//        model.addAttribute("answers", exerciseService.getExeOneAnswer(question.getTransId()));
+        model.addAttribute("answers", exerciseService.getExeOneAnswer(question.getTransId()));
         return "exeOne";
     }
 
