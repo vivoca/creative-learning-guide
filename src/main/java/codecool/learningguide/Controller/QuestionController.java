@@ -15,6 +15,16 @@ public class QuestionController {
     @Autowired
     TranslationService translationService;
 
+    @Autowired
+    ExerciseService exerciseService;
+
+    @RequestMapping(value = "/exeOne")
+    public String exeOne(Model model) {
+        Translation  question = exerciseService.getExeOneQuestion();
+        model.addAttribute("question", question);
+//        model.addAttribute("answers", exerciseService.getExeOneAnswer(question.getTransId()));
+        return "exeOne";
+    }
 
     @RequestMapping(value = "/getAllWords", method = RequestMethod.GET)
     public String getAllTranslation(Model model) {

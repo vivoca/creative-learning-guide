@@ -96,7 +96,7 @@ public class TranslationDaoImpl extends JdbcDaoSupport implements TranslationDao
                 Translation trans = new Translation();
                 trans.setTransId(rs.getInt("trans_id"));
                 trans.setHungarian(rs.getString("hungarian"));
-                trans.setForeign(rs.getString("foreign"));
+                trans.setForeign(rs.getString("other"));
                 return trans;
             }
         });

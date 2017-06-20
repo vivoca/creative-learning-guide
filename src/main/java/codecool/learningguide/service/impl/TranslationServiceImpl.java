@@ -29,15 +29,13 @@ public class TranslationServiceImpl implements TranslationService {
     }
 
     @Override
-    public void getTranslationById(int trans_id) {
-        Translation trans = translationDao.findTranslationById(trans_id);
-        System.out.println(trans);
+    public Translation getTranslationById(int trans_id) {
+        return translationDao.findTranslationById(trans_id);
     }
 
     @Override
-    public void getHungarianById(int trans_id) {
-        String hungarian = translationDao.findHungarianById(trans_id);
-        System.out.println("Hungarian translation = " + hungarian);
+    public String getHungarianById(int trans_id) {
+        return translationDao.findHungarianById(trans_id);
     }
 
     @Override
@@ -51,5 +49,4 @@ public class TranslationServiceImpl implements TranslationService {
         int totalNumberTranslation = translationDao.getTotalNumberTranslation();
         System.out.println("Total Number Translation is: " + totalNumberTranslation);
     }
-
 }

@@ -1,7 +1,6 @@
 package codecool.learningguide.service;
 
 import codecool.learningguide.model.Translation;
-
 import java.util.List;
 
 public interface TranslationService {
@@ -12,9 +11,9 @@ public interface TranslationService {
 
     List<Translation> getAllTranslation();
 
-    void getTranslationById(int trans_id);
+    Translation getTranslationById(int trans_id);
 
-    void getHungarianById(int trans_id);
+    String getHungarianById(int trans_id);
 
     void getForeignById(int trans_id);
 
