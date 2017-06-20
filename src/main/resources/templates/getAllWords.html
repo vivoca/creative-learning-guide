@@ -14,7 +14,7 @@
     </tr>
     <th:block th:each= "trans : ${translations}" >
         <tr>
-            <td th:text="${trans.transId}"></td>
+            <td th:text="${trans.transId}">${trans.transId}</td>
             <td th:text="${trans.hungarian}">${trans.hungarian}</td>
             <td th:text="${trans.foreign}">${trans.foreign}</td>
         </tr>
