@@ -6,9 +6,7 @@ import codecool.learningguide.service.TranslationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class ExerciseServiceImpl implements ExerciseService {
@@ -17,13 +15,23 @@ public class ExerciseServiceImpl implements ExerciseService {
     TranslationService translationService;
 
     @Override
-    public Set<Translation> getExeOneAnswer(int questionId) {
-        Set<Translation> result = new HashSet<Translation>();
-        Random ran = new Random();
+    public List<Translation> getExeOneAnswer(int questionId) {
+        List<Translation> result = new ArrayList<Translation>();
+        result.add(translationService.getTranslationById(questionId));
         while (result.size() < 4) {
-            int transId = ran.nextInt(1) + 5;
-            result.add(translationService.getTranslationById(transId));
+            Random rand = new Random();
+            int transId = rand.nextInt((5 - 1) + 1) + 1;
+            boolean contained = false;
+            for (Translation element : result) {
+                if (element.compareTo(translationService.getTranslationById(transId)) == 0) {
+                    contained = true;
+                }
+            }
+            if (!contained) {
+                result.add(translationService.getTranslationById(transId));
+            }
         }
+        Collections.shuffle(result);
         return result;
     }
 

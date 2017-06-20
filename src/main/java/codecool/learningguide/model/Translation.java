@@ -1,9 +1,7 @@
 package codecool.learningguide.model;
 
-import java.io.Serializable;
 
-public class Translation implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Translation implements Comparable<Translation> {
     int transId;
     String hungarian;
     String foreign;
@@ -39,6 +37,17 @@ public class Translation implements Serializable {
 
     public void setForeign(String foreign) {
         this.foreign = foreign;
+    }
+
+    @Override
+    public int compareTo(Translation other){
+        if (getTransId() > other.getTransId()) {
+            return 1;
+        } else if (getTransId() < other.getTransId()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     @Override
