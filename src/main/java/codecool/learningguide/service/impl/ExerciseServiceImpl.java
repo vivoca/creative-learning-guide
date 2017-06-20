@@ -20,11 +20,11 @@ public class ExerciseServiceImpl implements ExerciseService {
     public Set<Translation> getExeOneAnswer(int questionId) {
         Set<Translation> result = new HashSet<Translation>();
         Random ran = new Random();
-        while (result.size() <= 4) {
+        while (result.size() < 4) {
             int transId = ran.nextInt(1) + 5;
             result.add(translationService.getTranslationById(transId));
         }
-        return null;
+        return result;
     }
 
     @Override
