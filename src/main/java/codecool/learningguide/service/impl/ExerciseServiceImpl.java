@@ -37,8 +37,8 @@ public class ExerciseServiceImpl implements ExerciseService {
 
     @Override
     public Translation getExeOneQuestion() {
-        Random ran = new Random();
-        int questionId = ran.nextInt(1) + 5;
+        Random rand = new Random();
+        int questionId = rand.nextInt((5 - 1) + 1) + 1;
         return translationService.getTranslationById(questionId);
     }
 }
